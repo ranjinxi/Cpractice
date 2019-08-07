@@ -18,7 +18,7 @@ int main() {
         }else {
             p *= (num[i] - '0');
         }
-        if (i > 13) {
+        if (i >= 13) {
             if (num[i -13] == '0') {
                 zero -= 1;
             }else {
