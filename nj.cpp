@@ -6,7 +6,7 @@
  ************************************************************************/
 #include <stdio.h>
 #include<iostream>
-#define max_n 10000
+#define max_n 100000
 using namespace std;
    
 int f[max_n + 5] = {1, 1};
