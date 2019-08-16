@@ -6,18 +6,20 @@
  ************************************************************************/
 #include <stdio.h>
 #include<iostream>
-#include <string.h>
+#include <cstring>
 using namespace std;
 
 #define max_n 20
 
 int val[max_n + 5][max_n + 5];
+int keep[max_n + 5][max_n + 5];
 
 int dfs(int i, int j, int n) {
     if (i + 1 == n) return val[i][j];
+    if (keep[i][j]) return keep[i][j];
     int val1 = dfs(i + 1, j, n);
     int val2 = dfs(i + 1, j + 1, n);
-    return (val1 > val2 ? val1 : val2) + val[i][j];
+    return keep[i][j] = (val1 > val2 ? val1 : val2) + val[i][j];
 }
 
 int main() {
@@ -26,6 +28,7 @@ int main() {
             cin >> val[i][j];
         }
     }
+    memset(keep, 1, sizeof(keep));
     cout << dfs(0, 0, max_n) << endl;
     return 0;
 }
