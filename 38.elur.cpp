@@ -4,24 +4,22 @@
 	> Mail: 
 	> Created Time: 2019年08月12日 星期一 14时24分15秒
  *************:***********************************************************/
-
-#include<iostream>
-#include <stdio.h>
+#include <iostream>
+#include <cmath>
 #define max_n 10000
 using namespace std;
-#include <math.h>
 
 int digits(int n) {
-    return floor(log10(n) + 1);
+    return floor(log10(n)) + 1;
 }
 
-int calc(int x) {
+int calac(int x) {
     int n = 1;
     int ans = 0;
-    while(digits(ans) < 9) {
-        ans *= (int )pow(10, digits(x * n));
-        ans += x*n;
-        n += 1;
+    while (digits(ans) < 9) {
+        ans *= (int)pow(10, digits(x * n));
+        ans += x * n;
+        n++;
     }
     if (digits(ans) - 9) return 0;
     int num[10] = {0};
@@ -37,11 +35,11 @@ int calc(int x) {
 
 int main() {
     int ans = 0;
-    for (int i = 0; i < max_n; i++) {
-        int tmp = calc(i);
-        if (tmp > ans) ans = tmp;
+    for (int i = 1; i < max_n; i++) {
+        int tmp = calac(i);
+        if (tmp > ans) ans = tmp; 
     }
-    printf("%d\n", ans);
+    cout << ans << endl;
     return 0;
 }
 

@@ -4,14 +4,13 @@
 	> Mail: 
 	> Created Time: 2019年08月09日 星期五 18时41分49秒
  ************************************************************************/
- #include <iostream>
- #include <cmath>
- #define max_n 1000000
+#include <iostream>
+#include <cmath>
+#define max_n 1000000
 using namespace std;
 
  int is_prime[max_n + 5] = {0};
  int prime[max_n + 5] = {0};
-
 
 void init() {
     for (int i = 2; i <= max_n; i++) {
@@ -21,7 +20,7 @@ void init() {
             is_prime[i * prime[j]] = 1;
             if (i % prime[j] == 0) break;
         }
-    }
+    } 
 }
 
 bool is_ca(int n) {
@@ -43,15 +42,12 @@ bool is_ca(int n) {
     init();
     is_prime[1] = 1;
     int sum = 0;
-    int num = 0;
     for (int i = 1; i <= prime[0]; i++) {
         if (is_ca(prime[i]))
-        {  cout << prime[i] << endl;  
-        sum += prime[i], num++;
+        { 
+        sum += prime[i];
         }
     }
      cout << sum << endl;
-     cout << num << endl;
-     cout << is_prime[1] << endl;
     return 0;
  }
